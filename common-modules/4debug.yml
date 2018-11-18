@@ -1,5 +1,5 @@
 --- # THis module uses register and debug commands
-- hosts: apacheweb
+- hosts: exam
   tasks:
     - name: print stout
       command: echo "hello, it is a test"

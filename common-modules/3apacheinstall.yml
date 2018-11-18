@@ -1,5 +1,5 @@
 --- # this module will install apache
-- hosts: apacheweb
+- hosts: exam
   become: yes
   tasks:
     - name: install apache

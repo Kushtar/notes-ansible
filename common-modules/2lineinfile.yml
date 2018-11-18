@@ -1,5 +1,5 @@
 --- # this module will create a file and a line if they do not exist
-- hosts: apacheweb
+- hosts: exam
   tasks:
     - name: create file if does not exist
       file: state=touch path=/home/test/hostname.conf

@@ -1,5 +1,5 @@
 --- # this playbook copies an application to remote machine
-- hosts: apacheweb
+- hosts: exam
   tasks:
   - name: upload a file to the target if it doesnot exist
     copy: src=/opt/program1.sh dest=/home/test/program1.sh mode=0755
