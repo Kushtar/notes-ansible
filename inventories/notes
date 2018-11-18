@@ -1,0 +1,21 @@
+Static and Dynamic Inventories
+
+
+Static Inventories:
+Adding hosts via patterns. Example:
+[webserver-group1]
+www[01-50].example.com --> include all hosts from 1-50
+apacheweb anisble_user=user --> it will use user as an ansible user
+
+## Have a look at the static folder for examples about variables created in static inventories. You can use them in ad-hoc commands like this:
+ansible -b -i myhost other -a "ls {{log_folder}}"
+
+Dynamic Inventories: JSON format. It must be executable file like with py extention.
+Lookup how to use dynamic inventories with Amozon and other Cloud services.
+
+You can create an inventory and playbook to test. Have a look  at the sample dynamic python script  and install_elinks.yml playbook in dynamic-inventory folder. make sure inventory has execute permission and  run this command:
+
+ansible-playbook - /etc/ansible/dynamic.py install _elinks.yml
+
+There are two default groups: all and ungrouped
+

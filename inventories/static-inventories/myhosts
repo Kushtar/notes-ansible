@@ -1,0 +1,9 @@
+[databases]
+apacheweb
+
+[other]
+appserver
+localhost
+
+[other:vars]
+log_folders=/opt/logs

@@ -1,0 +1,8 @@
+---
+- hosts: all
+  user: "{{ ansible_ssh_user }}"
+  connection: ssh
+  become: yes
+  tasks:
+    - name: install elinks on machines
+      action: yum name=elinks state=latest

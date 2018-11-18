@@ -1,0 +1,2 @@
+--- # we can create a separate variables file and use in our ad-hoc command
+var_logfolder: /opt/log
