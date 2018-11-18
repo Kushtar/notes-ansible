@@ -1,0 +1,15 @@
+--- # this module will install apache
+- hosts: apacheweb
+  become: yes
+  tasks:
+    - name: install apache
+      yum: name=httpd state=latest
+    - name: create file if does not exist
+      file: state=touch path=/var/www/html/index.html
+    - name: create line if does not exist
+      lineinfile:
+        state: present
+        path: /var/www/html/index.html
+        line: Hostname={{ansible_hostname}} 
+    - name: restart apache
+      service: name=httpd state=restarted enabled=yes

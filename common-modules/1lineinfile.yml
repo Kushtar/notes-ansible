@@ -1,0 +1,9 @@
+--- # this works only if the destination file exists
+- hosts: apacheweb
+  tasks:
+    - name: add hostname to config
+      lineinfile:
+        dest: /home/test/hostname.conf
+        regexp: ^Hostname=.*
+        insertafter: ^# Hostname=
+        line: Hostname={{ansible_hostname}} 

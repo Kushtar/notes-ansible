@@ -1,0 +1,8 @@
+---
+- hosts: apacheweb
+  tasks:
+    - shell: cat /etc/motd
+      register: motd_contents
+    - debug: var=motd_contents
+    - debug: msg="MOTD is empty"
+      when: motd_contents.stdout == ""

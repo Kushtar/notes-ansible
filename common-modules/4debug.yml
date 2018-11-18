@@ -1,0 +1,8 @@
+--- # THis module uses register and debug commands
+- hosts: apacheweb
+  tasks:
+    - name: print stout
+      command: echo "hello, it is a test"
+      register: hello
+    - debug: msg="stdout={{hello.stdout}}"
+    - debug: msg="stderr={{hello.stderr}}"

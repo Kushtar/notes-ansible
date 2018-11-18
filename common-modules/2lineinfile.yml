@@ -1,0 +1,10 @@
+--- # this module will create a file and a line if they do not exist
+- hosts: apacheweb
+  tasks:
+    - name: create file if does not exist
+      file: state=touch path=/home/test/hostname.conf
+    - name: create line if does not exist
+      lineinfile:
+        state: present
+        path: /home/test/hostname.conf
+        line: Hostname={{ansible_hostname}} 

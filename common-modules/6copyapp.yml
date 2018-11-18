@@ -1,0 +1,15 @@
+--- # this playbook copies an application to remote machine
+- hosts: apacheweb
+  tasks:
+  - name: upload a file to the target if it doesnot exist
+    copy: src=/opt/program1.sh dest=/home/test/program1.sh mode=0755
+  - name: if the line not then add it
+    lineinfile: 
+      state: present 
+      path: /home/test/program1.sh 
+      regexp: '^HOSTNAME='
+      line: HOSTNAME={{ansible_hostname}} 
+  - name: Run the program
+    shell: /home/test/program1.sh
+    register: program_output
+  - debug: var=program_output
