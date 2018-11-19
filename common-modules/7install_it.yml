@@ -1,0 +1,7 @@
+---
+- hosts: exam
+  become: yes
+  tasks:
+    - name: if os is redhat install apache
+      yum: name=httpd state=latest when=ansible_os_family == "RedHat"
+
