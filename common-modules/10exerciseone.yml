@@ -1,0 +1,15 @@
+--- # this playbook copies a hosts file and installs four packages
+- hosts: exam
+  become: yes
+  tasks:
+    - name: Copy hosts file
+      copy: src=/etc/ansible/hosts dest=/home/test/hostsfromserver mode=0777
+    - name: install four packages with loop
+      yum: name={{ item }} state=latest
+      with_items:
+        - httpd 
+        - php
+        - php-mysql
+        - elinks 
+      register: result
+    - debug: var=result

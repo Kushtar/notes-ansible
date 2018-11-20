@@ -1,0 +1,11 @@
+--- # this playbook uses conditionals
+- hosts: exam
+  become: yes
+  tasks: 
+    - name: echo empty is motd is empty 
+      shell: cat /etc/motd
+      register: motd
+    - debug: msg="stdout={{ motd.stdout }}"
+    - debug: msg="MOTD is EMPTY"
+      when: motd.stdout==""
+  

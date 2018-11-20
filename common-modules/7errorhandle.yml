@@ -1,0 +1,13 @@
+---
+- hosts: exam
+  tasks:
+    - name: copy file to the exam machine
+      copy: src=test.sh dest=/home/test/test.sh mode=0755
+    - name: RUn the script
+      command: /home/test/test.sh
+      ignore_errors: yes
+      register: comm_out
+    - debug: 
+        msg="STDOUT - {{ comm_out.stdout }}"
+    - debug:
+        msg="STDERR - {{ comm_out.stderr }}"

@@ -1,0 +1,20 @@
+--- #
+- hosts: exam
+  become: yes
+  tasks: 
+    - name: Install apache server
+      yum: name=httpd state=latest
+      ignore_errors: yes
+      register: there
+      tags:
+        - packages
+    - name: start apache if there
+      service: name=httpd state=started
+      register: running
+      tags:
+        - startup
+    - name: stop apache if there
+      service: name=httpd state=stopped
+      register: running
+      tags:
+        - stop
