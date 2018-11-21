@@ -1,0 +1,4 @@
+---
+- hosts: local
+  tasks:
+    - debug: msg="The private facts are {{ ansible_local.exercise.general.private_fact}} and {{ansible_local.exercise.general.other_fact}}"

@@ -1,0 +1,4 @@
+--- # This playbook is created to test the custom facts we created. In /etc/ansible/facts.d folder, you can create your facts about the current system. file must have fact extention (preference.fact) to be read by ansible. 
+- hosts: local
+  tasks:
+    - debug: msg="{{ ansible_local.preference }}"

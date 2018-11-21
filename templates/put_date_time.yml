@@ -1,0 +1,8 @@
+---
+- hosts: exam
+  become: yes
+  vars: 
+    date_time: "{{ansible_date_time.date}} {{ansible_date_time.hour}}:{{ansible_date_time.minute}}"
+  tasks:
+    - name: write date run to a file on the server
+      template: src=datetemplate.j2 dest=/home/examer/date-time.txt

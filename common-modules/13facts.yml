@@ -1,0 +1,4 @@
+--- # without .date, we will get all variable from that fact. in order get exam information, we can use . and the variable name
+- hosts: exam
+  tasks: 
+    - debug: msg="The server Data is {{ ansible_date_time.date }}and Time is {{ ansible_date_time.hour }}"

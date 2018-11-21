@@ -1,0 +1,6 @@
+---
+- hosts: exam
+  become: yes
+  tasks:
+    - debug: msg="The server OS is {{ ansible_distribution }}-{{ ansible_distribution_major_version }}"
+    - debug: msg="The servers {{ansible_hostname}} IP is {{ansible_default_ipv4.address}}"
